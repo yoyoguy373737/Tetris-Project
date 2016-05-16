@@ -1,37 +1,30 @@
 package Tetris;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 
-public class Block {
-	private int x;
-	private int y;
+public class Block extends Rectangle{
+	private int length;
 	private Color col;
-	private static boolean getUp = false;
+	private static boolean K_ROTATE = false;
 	
-	public Block(int x, int y, Color col){
-		this.x = x;
-		this.y = y;
+	public Block(int x, int y, int length, Color col){
+		super(x, y);
+		this.length = length;
 		this.col = col;
 	}
 	public void translateRight(){
-		x++;
+		setLocation((int)(getX()+1), (int)getY());
 	}
 	public void translateLeft(){
-		x--;
+		setLocation((int)(getX()-1), (int)getY());
 	}
 	public void translateDown(){
-		y++;
+		setLocation((int)getX(), (int)(getY()+1));
 	}
-	public int getX(){
-		return x;
-	}
-	public int getY(){
-		return y;
-	}
-	public void setX(int x){
-		this.x = x;
-	}
-	public void setY(int y){
-		this.y = y;
+	public boolean overlap(Block b){
+		boolean c = (x <= b.getX() + length) && (x >= b.getX());
+		boolean d = (y <= b.getY() + length) && (y >= b.getY());
+	    return c && d;
 	}
 }
