@@ -22,9 +22,4 @@ public class Block extends Rectangle{
 	public void translateDown(){
 		setLocation((int)getX(), (int)(getY()+1));
 	}
-	public boolean overlap(Block b){
-		boolean c = (x <= b.getX() + length) && (x >= b.getX());
-		boolean d = (y <= b.getY() + length) && (y >= b.getY());
-	    return c && d;
-	}
 }
