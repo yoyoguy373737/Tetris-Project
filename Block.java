@@ -4,13 +4,12 @@ import java.awt.Color;
 import java.awt.Rectangle;
 
 public class Block extends Rectangle{
-	private int length;
 	private Color col;
 	private static boolean K_ROTATE = false;
+	public static int SIZE = 40;
 	
-	public Block(int x, int y, int length, Color col){
-		super(x, y);
-		this.length = length;
+	public Block(int x, int y, Color col){
+		super(x, y, SIZE, SIZE);
 		this.col = col;
 	}
 	public void translateRight(){

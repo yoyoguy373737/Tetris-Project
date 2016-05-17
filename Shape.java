@@ -14,46 +14,46 @@ public class Shape {
 		int c = 120;
 		switch(num){
 			case 1: //square
-				list.add(new Block(c+l,0,l,col));
-				list.add(new Block(2*l+c,0,l,col));
-				list.add(new Block(c+l,l,l,col));
-				list.add(new Block(c+2*l,l,l,col));
+				list.add(new Block(c+l,0,col));
+				list.add(new Block(2*l+c,0,col));
+				list.add(new Block(c+l,l,col));
+				list.add(new Block(c+2*l,l,col));
 				break;
 			case 2: //T thing
-				list.add(new Block(c,0,l,col));
-				list.add(new Block(c+l,0,l,col));
-				list.add(new Block(c+2*l,0,l,col));
-				list.add(new Block(c+l,l,l,col));
+				list.add(new Block(c,0,col));
+				list.add(new Block(c+l,0,col));
+				list.add(new Block(c+2*l,0,col));
+				list.add(new Block(c+l,l,col));
 				break;
 			case 3: //S thing
-				list.add(new Block(c,l,l,col));
-				list.add(new Block(c+l,0,l,col));
-				list.add(new Block(c+l,l,l,col));
-				list.add(new Block(c+2*l,0,l,col));
+				list.add(new Block(c,l,col));
+				list.add(new Block(c+l,0,col));
+				list.add(new Block(c+l,l,col));
+				list.add(new Block(c+2*l,0,col));
 				break;
 			case 4: //Z thing
 				list.add(new Block(c,l,0,col));
-				list.add(new Block(c+l,0,l,col));
-				list.add(new Block(c+l,l,l,col));
-				list.add(new Block(c+2*l,l,l,col));
+				list.add(new Block(c+l,0,col));
+				list.add(new Block(c+l,l,col));
+				list.add(new Block(c+2*l,l,col));
 				break;
 			case 5: //L thing
-				list.add(new Block(c,0,l,col));
-				list.add(new Block(c,l,l,col));
-				list.add(new Block(c+l,l,l,col));
-				list.add(new Block(c+2*l,l,l,col));
+				list.add(new Block(c,0,col));
+				list.add(new Block(c,l,col));
+				list.add(new Block(c+l,l,col));
+				list.add(new Block(c+2*l,l,col));
 				break;
 			case 6: //J thing
-				list.add(new Block(c,l,l,col));
-				list.add(new Block(c,0,l,col));
-				list.add(new Block(c+l,0,l,col));
-				list.add(new Block(c+2*l,0,l,col));
+				list.add(new Block(c,l,col));
+				list.add(new Block(c,0,col));
+				list.add(new Block(c+l,0,col));
+				list.add(new Block(c+2*l,0,col));
 				break;
 			case 7: //line
-				list.add(new Block(c,0,l,col));
-				list.add(new Block(c+l,0,l,col));
-				list.add(new Block(c+2*l,0,l,col));
-				list.add(new Block(c+3*l,0,l,col));
+				list.add(new Block(c,0,col));
+				list.add(new Block(c+l,0,col));
+				list.add(new Block(c+2*l,0,col));
+				list.add(new Block(c+3*l,0,col));
 				break;
 		}	
 		public void translateShapeR(){
