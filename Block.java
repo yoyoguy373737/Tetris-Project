@@ -27,5 +27,4 @@ public class Block extends Rectangle{
 		boolean d = (y <= b.getY() + length) && (y >= b.getY());
 	    return c && d;
 	}
-	// michelle
 }
