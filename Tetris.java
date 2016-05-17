@@ -35,4 +35,18 @@ public class Tetris extends JComponent {
 				}
 		return full;
 	}
+	
+	public void delRows(){
+		for(int a = 0; a < board[0].length; a++) {
+			if(rowCheck(a)) {
+				for(Block b: allBlocks)) {
+					if(b.getY() * SIZE == a) { //this condition needs checking
+						allBlocks.remove(allBlocks.get(b));
+					} else if(b.getY() * SIZE < a) {
+						b.translateDown();
+					}
+				}
+			}
+		}
+	}
 }
