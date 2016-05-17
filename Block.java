@@ -13,12 +13,12 @@ public class Block extends Rectangle{
 		this.col = col;
 	}
 	public void translateRight(){
-		setLocation((int)(getX()+1), (int)getY());
+		setLocation((int)(getX()+SIZE), (int)getY());
 	}
 	public void translateLeft(){
-		setLocation((int)(getX()-1), (int)getY());
+		setLocation((int)(getX()-SIZE), (int)getY());
 	}
 	public void translateDown(){
-		setLocation((int)getX(), (int)(getY()+1));
+		setLocation((int)getX(), (int)(getY()+SIZE));
 	}
 }
