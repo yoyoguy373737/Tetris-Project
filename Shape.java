@@ -21,8 +21,8 @@ public class Shape {
 				break;
 			case 2: //T thing
 				list.add(new Block(c,0,col));
-				list.add(new Block(c+l,0,col));
 				list.add(new Block(c+2*l,0,col));
+				list.add(new Block(c+l,0,col));
 				list.add(new Block(c+l,l,col));
 				break;
 			case 3: //S thing
