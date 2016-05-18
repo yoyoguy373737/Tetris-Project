@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Shape {
 	private ArrayList<Block> list;
 	private int type;
+	public static boolean K_rotate = false;
 	
 	public Shape(int num, Color col){
 		list = new ArrayList<>();
@@ -72,24 +73,32 @@ public class Shape {
 			}
 		}
 		public void rotate(){
-			switch(type){
-			case 1:
-				break;
-			case 2:
-				rotateT();
-				break;
-			case 3:
-				rotateS();
-				break;
-			case 4:
-				rotateZ();
-				break;
-			case 5:
-				rotateL();
-				break;
-			case 6:
+			if(K_rotate) {
+				rotateA();
+			} else {
+				rotateB();
 			}
-			
+				
+		}
+		private void rotateA() {
+			int x = list[2].getX();
+			int y = list[2].getY();
+			for(Block b: list) {
+				int x_1 = b.getX() - x;
+				int y_1 = b.getY() - y;
+				b.setLocation(x - y_1, y + x_1);
+			}
+			K_rotate = !K_rotate;
+		}
+		private void rotateB() {
+			int x = list[2].getX();
+			int y = list[2].getY();
+			for(Block b: list) {
+				int x_1 = b.getX() - x;
+				int y_1 = b.getY() - y;
+				b.setLocation(x + y_1, y + x_1);
+			}
+			K_rotate = !K_rotate;
 		}
 	}
 }
