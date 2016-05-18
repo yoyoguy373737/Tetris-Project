@@ -9,7 +9,7 @@ public class Main {
 	public static void main(String[] args){
 		JFrame frame = new JFrame("Tetris");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(800, 400);
+		frame.setSize(400, 800);
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.addKeyListener(new KeyListener() {
