@@ -59,7 +59,7 @@ public class Shape {
 		}	
 		public void translateShapeR(){
 			for(Block b : list){
-				b.tanslateRight();
+				b.translateRight();
 			}
 		}
 		public void translateShapeL(){
@@ -69,7 +69,7 @@ public class Shape {
 		}
 		public void translateShapeD(){
 			for(Block b : list){
-				b.tanslateDown();
+				b.translateDown();
 			}
 		}
 		public void rotate(){
