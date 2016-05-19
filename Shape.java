@@ -6,57 +6,65 @@ import java.util.ArrayList;
 public class Shape {
 	private ArrayList<Block> list;
 	private int type;
-	public static boolean K_rotate = false;
+	private Color col;
 	
-	public Shape(int num, Color col){
+	public Shape(int num){
 		list = new ArrayList<>();
 		type = num;
-		int l = 40;
-		int c = 120;
+		int l = Block.SIZE;
+		int c = (int)(.5*Block.WIDTH) - 2*Block.SIZE;
 		switch(num){
-			case 1: //square
-				list.add(new Block(c+l,0,col));
-				list.add(new Block(2*l+c,0,col));
-				list.add(new Block(c+l,l,col));
-				list.add(new Block(c+2*l,l,col));
+			case 1: //Square
+				list.add(new Block(c+l,0));
+				list.add(new Block(2*l+c,0));
+				list.add(new Block(c+l,l));
+				list.add(new Block(c+2*l,l));
+				col = Color.YELLOW;
 				break;
 			case 2: //T thing
-				list.add(new Block(c,0,col));
-				list.add(new Block(c+2*l,0,col));
-				list.add(new Block(c+l,0,col));
-				list.add(new Block(c+l,l,col));
+				list.add(new Block(c,0));
+				list.add(new Block(c+2*l,0));
+				list.add(new Block(c+l,0));
+				list.add(new Block(c+l,l));
+				col = new Color(160, 32, 240);
 				break;
 			case 3: //S thing
-				list.add(new Block(c,l,col));
-				list.add(new Block(c+l,0,col));
-				list.add(new Block(c+l,l,col));
-				list.add(new Block(c+2*l,0,col));
+				list.add(new Block(c,0));
+				list.add(new Block(c+l,0));
+				list.add(new Block(c+l,l));
+				list.add(new Block(c+2*l,l));
+				col = Color.GREEN;
 				break;
 			case 4: //Z thing
-				list.add(new Block(c,l,0,col));
-				list.add(new Block(c+l,0,col));
-				list.add(new Block(c+l,l,col));
-				list.add(new Block(c+2*l,l,col));
+				list.add(new Block(c,l));
+				list.add(new Block(c+l,0));
+				list.add(new Block(c+l,l));
+				list.add(new Block(c+2*l,0));
+				col = Color.RED;
 				break;
 			case 5: //L thing
-				list.add(new Block(c,0,col));
-				list.add(new Block(c,l,col));
-				list.add(new Block(c+l,l,col));
-				list.add(new Block(c+2*l,l,col));
+				list.add(new Block(c,0));
+				list.add(new Block(c,l));
+				list.add(new Block(c+l,l));
+				list.add(new Block(c+2*l,l));
+				col = new Color(255,140,0);
 				break;
 			case 6: //J thing
-				list.add(new Block(c,l,col));
-				list.add(new Block(c,0,col));
-				list.add(new Block(c+l,0,col));
-				list.add(new Block(c+2*l,0,col));
+				list.add(new Block(c,l));
+				list.add(new Block(c,0));
+				list.add(new Block(c+l,0));
+				list.add(new Block(c+2*l,0));
+				col = new Color(30,144,255);
 				break;
-			case 7: //line
-				list.add(new Block(c,0,col));
-				list.add(new Block(c+l,0,col));
-				list.add(new Block(c+2*l,0,col));
-				list.add(new Block(c+3*l,0,col));
+			case 7: //Line
+				list.add(new Block(c,0));
+				list.add(new Block(c+l,0));
+				list.add(new Block(c+2*l,0));
+				list.add(new Block(c+3*l,0));
+				col = Color.CYAN;
 				break;
 		}	
+	}
 		public void translateShapeR(){
 			for(Block b : list){
 				b.translateRight();
@@ -72,44 +80,34 @@ public class Shape {
 				b.translateDown();
 			}
 		}
-		public void rotate(){
-			if(K_rotate) {
-				rotateA();
-			} else {
-				rotateB();
+		
+		public void rotate() {
+			if(type != 1){
+				int x = (int)list.get(2).getX();
+				int y = (int)list.get(2).getY();
+				for(Block b: list) {
+					int x_1 = (int)b.getX() - x;
+					int y_1 = (int)b.getY() - y;
+					b.setLocation(x - y_1, y + x_1);
+				}
 			}
-				
-		}
-		private void rotateA() {
-			int x = list[2].getX();
-			int y = list[2].getY();
-			for(Block b: list) {
-				int x_1 = b.getX() - x;
-				int y_1 = b.getY() - y;
-				b.setLocation(x - y_1, y + x_1);
-			}
-			K_rotate = !K_rotate;
-		}
-		private void rotateB() {
-			int x = list[2].getX();
-			int y = list[2].getY();
-			for(Block b: list) {
-				int x_1 = b.getX() - x;
-				int y_1 = b.getY() - y;
-				b.setLocation(x + y_1, y + x_1);
-			}
-			K_rotate = !K_rotate;
 		}
 		public boolean noMoreMoves(){
 			boolean hasMoves = true;
 			for(Block b: list) {
-				for(Block b1: allBlocks) {
-					if(b.getY() == b1.getY() - SIZE) {
-						hasMoves = false
+				for(Block b1: Tetris.allBlocks) {
+					if(b.getY() == b1.getY() - Block.SIZE) {
+						hasMoves = false;
 					}
 				}
 			}
 			return hasMoves;
 		}
+	
+	public ArrayList<Block> getList(){
+		return list;
+	}
+	public Color getColor(){
+		return col;
 	}
 }
