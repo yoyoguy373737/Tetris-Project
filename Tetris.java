@@ -9,7 +9,7 @@ import java.util.Random;
 import java.awt.*;
 
 public class Tetris extends JComponent {
-	Square[][] board;
+	public Square[][] board;
 	public static ArrayList<Block> allBlocks;
 	public ArrayList<Shape> shapes;
 	public boolean moving;
