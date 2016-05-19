@@ -100,5 +100,16 @@ public class Shape {
 			}
 			K_rotate = !K_rotate;
 		}
+		public boolean noMoreMoves(){
+			boolean hasMoves = true;
+			for(Block b: list) {
+				for(Block b1: allBlocks) {
+					if(b.getY() == b1.getY() - SIZE) {
+						hasMoves = false
+					}
+				}
+			}
+			return hasMoves;
+		}
 	}
 }
